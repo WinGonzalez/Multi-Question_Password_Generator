@@ -1,16 +1,16 @@
 // Assignment code here
 //strings for character types
-var lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
-var upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numberChars = "0123456789";
-var specialChars = "!@#$%^&*()-_=+[]{}|;:,.<>?"; 
+var lowerCaseChars = 'abcdefghijklmnopqrstuvwxyz';
+var upperCaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var numberChars = '0123456789';
+var specialChars = '!@#$%^&*()-_=+[]{}|;:,.<>?'; 
 
 // Function for password
 function generatePassword(){
   var availableChars = ''; 
 
   //asks for password length
-var passwordLength = parseINT(prompt("How long would you like the password? (8-128 characters)")));
+var passwordLength = parseINT(prompt("How long would you like the password? (8-128 characters)"));
 
 // validates the password length 
 while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
@@ -29,6 +29,21 @@ if (confirm("Would you like to include number characters?")){
 if (confirm("Would you like to include special characters?")){
   availableChars += specialChars;
 }
+// checks that there is at least one character type
+while (availableChars.lenght === 0){
+  alert("You must select at least one character type.");
+  return generatePassword();
+}
+
+// Generates a password with guidelines indicated
+var password ='';
+for (var i = 0; i < passwordLength; i++){
+  var randomIndex = Math.floor(Math.random() * availableChars.length);
+  password += availableChars[randomIndex];
+
+}
+
+return password;
 }
 
 // Get references to the #generate element
