@@ -10,7 +10,7 @@ function generatePassword(){
   var availableChars = ''; 
 
   //asks for password length
-var passwordLength = parseINT(prompt("How long would you like the password? (8-128 characters)"));
+var passwordLength = parseInt(prompt("How long would you like the password? (8-128 characters)"));
 
 // validates the password length 
 while (isNaN(passwordLength) || passwordLength < 8 || passwordLength > 128){
@@ -30,7 +30,7 @@ if (confirm("Would you like to include special characters?")){
   availableChars += specialChars;
 }
 // checks that there is at least one character type
-while (availableChars.lenght === 0){
+while (availableChars.length === 0){
   alert("You must select at least one character type.");
   return generatePassword();
 }
@@ -56,7 +56,7 @@ function writePassword() {
 
   passwordText.value = password;
 
-}
 
+}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
